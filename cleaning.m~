@@ -1,0 +1,12 @@
+function cleaning(original_noised)
+loop_size = size( original_noised , 1 );
+
+for i = 1:loop_size
+    array_row = original_noised(i:i, :);
+if(array==-Inf))>0)
+       I = [I, i];
+    end
+end
+
+X(I,:) = [];
+y(I,:) = [];
