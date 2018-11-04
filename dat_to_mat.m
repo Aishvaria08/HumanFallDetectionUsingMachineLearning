@@ -7,15 +7,8 @@ endname = '.dat';
 final_matrix = [];
 training = [];
 
-total_count = 150;
-for k = 1:total_count;
-    
-    if (1<= k <= 20) || (31<= k <= 50) || (61<= k <= 80) || (91<= k <= 110) || (121<= k <= 140)
-           
-        else
-           
-        end
-
+total_count = 10;
+for k = 1:total_count
     FileName = [BaseName,num2str(k),endname];
     
     csi_trace = read_bf_file(FileName);

@@ -10,7 +10,20 @@ original_noised = dat_to_mat();
 cleaned_data = cleaning(original_noised);
 
 % data denoising
-data_denoise = denoising(cleaned_data,5);
+data_denoise = denoise(cleaned_data,5);
+
+% divide data into training and testing
+[m,n] = size(data_denoise);
+interval = 5;
+bins = (m/interval);
+for i = 1:bins
+var_name = strcat(Prefix, num2str(i));
+Mat_child = genvarname(var_name);
+Start = (i-1)*interval + 1;
+End = i*interval;
+eval([Mat_child ' = Mat(Start:End,:)']);
+end
+
 
 % prompt = 'What is the filename of input?';
 % str = input(prompt,'s');
