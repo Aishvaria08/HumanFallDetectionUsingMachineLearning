@@ -7,7 +7,7 @@ endname = '.dat';
 final_matrix = [];
 training = [];
 
-total_count = 10;
+total_count = 150;
 for k = 1:total_count
     FileName = [BaseName,num2str(k),endname];
     
