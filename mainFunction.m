@@ -18,20 +18,47 @@ original_noised = dat_to_mat();
 % data denoising
 data_denoise = denoise(original_noised,5);
 
+<<<<<<< HEAD:forloop.m
+Mat = data_denoise;
+
+% divide data into training and testing
+[m,n] = size(Mat);
+interval = 5;
+training = 3;
+Prefix = 'Mat';
+=======
 % Conversion of Traing and testing data
 Mat = data_denoise;
 Prefix = 'Mat';
 [m,n] = size(Mat);
+<<<<<<< HEAD
 interval = 80;
+=======
+interval = 30;
+>>>>>>> 5133d8c9ab4aeef4ae9753281011fe81d72e23eb:mainFunction.m
+>>>>>>> 140ce6ca126e8169c176503024e0f49e7f919959
 bins = (m/interval);
 Training = [];
 Testing = [];
 
 for i = 1:bins
 var_name = strcat(Prefix, num2str(i));
+
 Mat_child = genvarname(var_name);
 Start = (i-1)*interval + 1;
+<<<<<<< HEAD
 End = i*interval - 20;
+=======
+<<<<<<< HEAD:forloop.m
+End = i*interval;
+eval([Mat_child ' = Mat(Start:End,:)']);
+
+training = strcat('training_set',num2str(i));
+testing = strcat('testing_set', num2str(i));
+
+=======
+End = i*interval - 10;
+>>>>>>> 140ce6ca126e8169c176503024e0f49e7f919959
 eval(['Training = [Training;Mat(Start:End,:)]']);
 end
 
@@ -42,6 +69,7 @@ Mat_child = genvarname(var_name);
 Start = (i-1)*interval + 61;
 End = i*interval;
 eval(['Testing = [Testing;Mat(Start:End,:)]']);
+>>>>>>> 5133d8c9ab4aeef4ae9753281011fe81d72e23eb:mainFunction.m
 end
 
 
