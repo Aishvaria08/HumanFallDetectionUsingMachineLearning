@@ -1,16 +1,16 @@
 
-function ex4(input_layer,hidden_layer, labels, x , y, l, iterations)
+% function ex4(input_layer,hidden_layer, labels, x , y, l, iterations,Training)
 %% =========== Part 1: Loading and Visualizing Data =============
 
 % load('7th.mat');
 % load('y.mat');
-X = x;
+X = Training;
 m = size(X, 1);
 
 %% Setup the parameters you will use for this exercise
-input_layer_size  = input_layer;  % 20x20 Input Images of Digits
-hidden_layer_size = hidden_layer;   % 25 hidden units
-num_labels = labels;          % 10 labels, from 1 to 10   
+input_layer_size  = 29700;  % 20x20 Input Images of Digits
+hidden_layer_size = 400;   % 25 hidden units
+num_labels = 240;          % 10 labels, from 1 to 10   
                           % (note that we have mapped "0" to label 10)
 
 
@@ -41,7 +41,7 @@ fprintf('\nTraining Neural Network... \n')
 options = optimset('MaxIter', iterations);
 
 %  You should also try different values of lambda
-lambda = l;
+lambda = 0.5 ;
 
 % Create "short hand" for the cost function to be minimized
 costFunction = @(p) nnCostFunction(p, ...
